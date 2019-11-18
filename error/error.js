@@ -11,7 +11,7 @@ const readline = require('readline').createInterface({
 let data = 0;
 
 socket.on('connect', () => {
-  process.stdout.write('Qual o set-point: ');
+  process.stdout.write('Insira o set point: ');
   readline.on('line', line => {
     let setPoint = Number(line);
 
@@ -19,7 +19,7 @@ socket.on('connect', () => {
       data = setPoint;
     }
 
-    process.stdout.write('Qual o set-point: ');
+    process.stdout.write('Insira o set point: ');
   });
 });
 

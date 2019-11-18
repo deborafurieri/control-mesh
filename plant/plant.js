@@ -22,16 +22,13 @@ const index = (arr, index) => {
     }
 }
 
-plot.xkcd();
-
 while(1) {
     Y.push(1.783 * index(Y, -1) - 0.8187 * index(Y, -2) + 0.004667 * index(X, -1) + 0.004374 * index(X, -2))
     if (X.length < Y.length) X.push(0)
 
     timer.push(timer[-1] + sampleTime)
 
-
-    plot.subplot(timer, Y, 'color=g', 'label=Sinal')
+    plot.plot(timer, Y, 'color=g', 'label=Sinal')
 
     plot.ylim(Y[-1] - 1, Y[-1] + 1)
 
@@ -42,13 +39,13 @@ while(1) {
         X.splice(0)
         timer.splice(0)
     }
-    
+
     // show plot
     plot.legend()
     plot.xlabel('(sec)')
     plot.ylabel('')
     plot.grid(true)
     plot.show()
-    
+
     new Promise(resolve => setTimeout(resolve, sampleTime))
 }
