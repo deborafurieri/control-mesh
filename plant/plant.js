@@ -11,6 +11,7 @@ const Y = [0];
 const X = [0];
 
 controller.on("message", data => {
+    console.log('data', data)
     X.push(data)
 });
 
@@ -19,6 +20,9 @@ const index = (arr, index) => {
     if (arr[index] !== undefined) return arr[index]
     else return 0
 }
+
+io.connect("http://localhost:3000/plant");
+io.connect("http://localhost:3000/controller");
 
 while(true) {
     let yLength = Y.length - 1
